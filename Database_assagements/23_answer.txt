@@ -1,0 +1,54 @@
+// create table -->
+    create table Book_info (id int unsigned primary key AUTO_INCREMENT,
+                            title varchar(100),
+                            author int unsigned,
+                            published_at date,
+                            is_exist boolean,
+                            genre int unsigned,
+                            language int unsigned,
+                            price int,
+                            FOREIGN KEY (author) REFERENCES Author(id),
+                            FOREIGN KEY (genre) REFERENCES Genre(id),
+                            FOREIGN KEY (language) REFERENCES Lang(id));
+
+// create table -->
+    create table Author (id int unsigned primary key AUTO_INCREMENT,
+                    name varchar(100),
+                    description text);
+
+// create table -->
+    create table Genre(id int unsigned AUTO_INCREMENT PRIMARY KEY,
+                   name varchar(50));
+
+// create table -->
+    create table Lang(id int unsigned AUTO_INCREMENT PRIMARY KEY,
+                  lang_code varchar(2),
+                  lang_name varchar(50));
+
+// Insert values -->
+    Insert into Book_info (title, author, published_at, is_exist, genre, language, price) values 
+        ('The Withcer: Last Wish', 1, '1993-07-07', true, 1, 1, 8),
+        ('Murder on the orient express', 2, '1934-01-01', false, 2, 2, 9),
+        ('The Witch Hunter', 3, '2015-06-02', true, 3, 2, 10),
+        ('The Little Prince', 4, '1943-04-06', true, 4, 3, 6.81),
+        ('Sylvanas (World of Warcraft)', 5, '2022-03-29', false, 1, 2, 24.49),
+        ('The Withcer: The Tower of Swallows', 1, '1997-08-12', true, 1, 1, 17.99);
+
+// Insert values -->
+    Insert into Author(name,description) values
+    ('Andrzej Sapkowski', 'Author of novels and fantasy stories, as well as essays and dictionaries about the fantasy genre. His most famous creation is The Witcher. Born 21st June 1948 in Łódź, where he currently resides and works.'),
+    ('Agatha Christie', "Agatha Christie (15 September 1890 – 12 January 1976) was an English writer of crime and romantic novels. She is best remembered for her detective stories including the two diverse characters of Miss Marple and Hercule Poirot. She is considered to be the best selling writer of all time. Only the Bible is known to have outstripped her collected sales of roughly four billion worldwide copies. Her works have been translated into more languages than any other individual writer."),
+    ('Virginia Boecker', "Virginia Boecker is the author of The Witch Hunter series and An Assassin's Guide to Love and Treason. A graduate of the University of Texas, she had a decade-long career in technology before quitting to become a full-time writer."),
+    ('Antoine de Saint-Exupéry', "The French novelist and essayist Antoine de Saint-Exupéry (1900-1944), a pioneer commercial pilot, more than any other writer can be regarded as the poet of flight."),
+    ('Christie Golden', "Christie Golden (born November 21, 1963) is an American author. She has written many novels and several short stories in fantasy, horror and science fiction.");
+
+// Insert values -->
+    Insert into Genre(name) values
+    ('Fantasy'), ('Crime novel'), ('Fiction'), ("Children's literature");
+
+
+//Insert values -->
+    Insert into Lang(lang_name, land_code) values
+    ('Polish', 'PL'),
+    ('English', 'EN'),
+    ('French', 'FR');

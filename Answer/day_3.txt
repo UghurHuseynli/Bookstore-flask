@@ -1,0 +1,4 @@
+Css niyə reset olunur ? - Hər browserin özünün padding və margin ayarları olur, css-i resetləməyəndə elementlərə verdiyimiz padding və marginlərdə yanlışlıq olur. 
+			Yəni bizim verdiyimizdən əlavə browserində özünün default ayarları olduğuna elementlər istədiyimiz yerdə dayanmırlar.
+Font awesomeın üstünlükləri? - Font awesome elementləri vektor tipli ikonlardır böyüdüldükdə keyfiyyət itkisi yaranmır. Çoxlu sayda ikonu rahatlıqla web səhifəyə 
+				əlavə edə bilərik.

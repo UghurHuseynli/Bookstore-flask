@@ -1,0 +1,10 @@
+Git nədir və nə üçün istifadə olunur? - Git versiya idarə etmə sistemidir, yaradacağımız appin updatelərin rahat yerinə yetirmək üçün bugların 
+		aşkarlanmasın rahat yerinə yetirmək üçün istifadə olunur.
+Github nədir? - Github kodlarımızı lokal şəkildə yox onlayn şəkildə saxlamaq üçün bir databasedir, tekce kodları saxlamaq üçün deyil eyni zamanda
+		qrup halında bir app üzərində işləmək üçündə istifadə olunur.
+
+Brauzerlər necə işləyir? - Brauzerlər istifadəçidən sorğuları alır onları serverlərə göndərir serverlərin cavab olaraq verdiyi xml,html və s. 
+			formatlı məlumatları oxuyub istifadəçiyə onun daha rahat başa düşəcəyi formada göstərir.
+Html teqləri nədir? - Html teqləri <> simvolları arasında yazılır. Teqlər informasiyanın bir növ necə göstərilməsini təyin edir. Misal olaraq 
+			paraqraf yazmaq istəyiriksə <p></p> teqindən sıralı list yazmaq istəyiriksə <ol></ol> və <li></li>  və s. teqlərindən istifadə olunur.
+Html atributları nədir? - Html atributları teqlərə əlavə parametrlər vermək üçün istifadə olunur. Misal üçün teqə name, id, genişlik, hündürlük və s. kimi əlavə parametrlər verir.

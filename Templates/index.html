@@ -1,0 +1,96 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+       <!-- Carusel -->
+
+  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+        aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+        aria-label="Slide 2"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{{ url_for('static', filename = 'Images/book_slide1.jpg') }}" class="d-block w-100" alt="Background image">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Mağazamıza xoş gəlmisinizz</h5>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="{{ url_for('static', filename = 'Images/book_slide2.jpg') }}" class="d-block w-100" alt="Background image">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Second slide label</h5>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <!-- Cards section  -->
+  <div class="container w-75 m-auto">
+    <h1 class="text-center mt-4">Kitablar</h1>
+
+    <div class="button-section text-center my-5">
+      <button id="all-button" type="button" class="btn btn-outline-primary">All</button>
+      <button id="crime_novel" type="button" class="btn btn-outline-primary">Crime novel</button>
+      <button id="fiction" type="button" class="btn btn-outline-primary">Fiction</button>
+      <button id="fantasy" type="button" class="btn btn-outline-primary">Fantasy</button>
+      <button id="Children" type="button" class="btn btn-outline-primary">Children's literature</button>
+    </div>
+    <div id="card-adding-section" class="d-flex flex-wrap justify-content-between">
+      {% for book in books %}
+        <div class="row" data-type = '{{ book.genre_id }}' data-id="{{ book.id }}">
+          <div class="col mt-4 d-flex justify-content-between mx-5">
+            <div class="card" style="width: 15rem;">
+              <img src="{{ url_for('static', filename = book.image_url) }}" class="card-img-top w-100" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">{{ book.title }}</h5>
+                <p class="card-text text-truncate">{{ book.description }}</p>
+                <a href="{{ url_for('book', book_id = book.id) }}" class="btn btn-primary" role="button">Ətraflı</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>  
+  </div>
+
+  <!-- Jumbotron -->
+
+  <div class="jumbotron" style="background-image: url(static/Images/jumbotron.jpg); color: #fff; padding: 3%;">
+    <div class="w-75 m-auto">
+      <h1 class="display-4">Günlük səhifə hesablanması</h1>
+      <p class="lead">Oxumaq istədiyiniz kitabın səhifə sayını daxil edirsiniz və kitabı neçə günə bitirmək istədiyinizi
+        yazırsınız. Biz sizə günə neçə səhifə oxumalı olduğunuzu bildiririk.</p>
+      <button id="start-page-calc" class="btn btn-warning btn-lg mt-3 mb-5">Başla</button>
+      <div id="alert-section" class="alert alert-success p-2 text-center d-none" role="alert">
+        Hər gün ən az <span id="day-section" class="fs-4 fw-bold">7</span> səhifə oxumalısınız!
+      </div>
+      <div id="danger-alert-section" class="alert alert-danger p-2 text-center fs-4 d-none" role="alert">
+        Hesablamada xəta baş verdi!
+      </div>
+      <form class="calc-form w-100 d-none" style="height: 2.5rem;">
+        <input id="page-size" type="number" class="w-50 rounded-3" placeholder="Səhifə sayını daxil edin: ">
+        <input id="day-size" type="number" class="w-50 rounded-3 m-2 mt-0 mb-0"
+          placeholder="Neçə günə bitirmək istəyirsiniz?: ">
+        <button type="button" id="calculate-button" class="w-25 rounded-3 text-white btn btn-info">Hesabla</button>
+      </form>
+    </div>
+  </div>
+
+{% endblock body %}
+
+
+{% block js %}
+    <script src="{{ url_for('static', filename = 'Js/index.js') }}"></script>
+{% endblock js %}
+    
+    

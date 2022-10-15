@@ -1,0 +1,4 @@
+Css nə edir? - Css saytda qurduğumuz şablonlara canlılıq(rəng, ölçü, stil və s.) vermək üçün istifadə olunur. Cssdən istifadə edərək saytin xarici görünüşün daha estetik göstərmək olar.
+
+Css selectorları nə üçün istifadə olunur? - class selectoru bir qrup elementlərə ümumi stil verəcəyimiz zaman istifadə olunur. İd selectoru adindanda görünəcəyi kimi tək olmalıdır, yəni eyni adlı 2 ədəd id olmamalıdır. 
+	Elementə xüsusi stil veriləcəyi zaman id istifadə olunur.

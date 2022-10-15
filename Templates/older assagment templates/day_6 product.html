@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+    <link rel="stylesheet" href="../Style/product_style.css">
+    <title>Bookshop</title>
+</head>
+<body>
+    <a class="main-brand-link" href="../Templates/index.html"><h1 class="main-brand" id="main-brand">Kitab mağazası</h1></a>
+    <nav class="nav-link">
+        <ul class="nav-list">
+            <li class="list-item"><a href="../Templates/index.html">Ana səhifə</a></li>
+            <li class="list-item"><a href="#">Haqqımızda</a></li>
+            <li class="list-item"><a href="#">Kateqoriyalar</a></li>
+            <li class="list-item"><a href="#">Ayın kitabı</a></li>
+            <li class="list-item"><a href="#">Əlaqə</a></li>
+        </ul>
+    </nav>
+    <div class="all-parent-content">
+        <div class="parent-content-first">
+            <div class="child-content-second">
+                <img src="../Images/Kitab.png" alt="incognito (beyinin gizli həyatı)" width="200px">
+           </div>
+            <div class="child-content-first-column">
+                <div class="child-content-first">
+                    <h2>David Eagleman - incognito (beyinin gizli həyatı)</h2>
+                    <h4 id="verdana">12.00 AZN <span id="deleted">15.00 AZN</span></h4>
+                </div>
+                <div class="child-content-third">
+                    <h4 class="heading">Qısa məzmun</h4><br>
+                    <p>Tanınmış nevroloq D.İqlmenin 20-dən çox dilə tərcümə edilən və indidən klassik əsərə çevrilən bu kitabı beynin sirli dünyasına təcrübələr, 
+                        elmi biliklər və tarixi faktlar işığında səyahət edir. Kitab tibbi mövzuda olsa da, müəllif yazarlıq məharətini və zəngin biliyini 
+                        birləşdirərək elmi faktları sadə və müqayisəli dillə oxucularına təqdim edir. Müəllif əsər boyu sədaqət geni, qumarbazlara çevrilən 
+                        parkinson xəstələri, gen-mühit əlaqəsi, “yaxşı” və “pis” gen, şüuraltı və qərarvermə mexanizmi, məsuliyyət anlayışı, beynin insan həyatında 
+                        rolu kimi bir çox mövzulara toxunur.</p>
+                </div>  
+                <button class="submit_button child-content-third-button" type="submit">Səbətə əlavə et</button>
+            </div>
+        </div>
+        <div class="parent-content-second">
+            <div class="child-second-content">
+                <h3 class="heading" id="table-prop-title">Xüsusiyyətlər</h3>
+            </div>
+           <div class="child-second-content">
+            <table id="table-prop">
+                <tr>
+                    <td class="table-prop-title-td">Dil:</td>
+                    <td class="table-prop-title-td">Azərbaycanca</td>
+                </tr>
+                <tr>
+                    <td>Janr:</td>
+                    <td>Psixologiya</td>
+                </tr>
+                <tr>
+                    <td>Müəllif:</td>
+                    <td>David Eagleman</td>
+                </tr>
+                <tr>
+                    <td>Nəşriyyat:</td>
+                    <td>Qanun nəşriyyat</td>
+                </tr>
+           </table>
+           </div>
+        </div>
+        <div class="parent-content-third-extra">
+            <h3 class="heading form-title">Şərh yaz</h3>
+        <div class="parent-content-third">
+            <form id="form_prop">
+                <label for="name">Tam adınız:</label>
+                <input class="hover-effect-yellow" type="text" id="name">
+               <div class="form-ele">
+                    <label for="oxumusunuz">Bu kitabı oxumusunuzmu?</label>
+                    <input class="chechbox-effect" type="checkbox" name="oxumusunuz" id="oxumusunuz">
+               </div>
+               <div class="form-ele">
+                    <label for="nə vaxt">Nə vaxt oxumusunuz?</label>
+                    <input class="hover-effect-yellow" type="date" name="nə vaxt" id="nə vaxt">
+               </div>
+               <div class="form-ele">
+                    <label for="hansi dil">Hansı dildə oxumusunuz?</label>
+                    <select name="hansi dil" id="hansi dil">
+                        <option value="Azərbaycanca">Azərbaycanca</option>
+                        <option value="İngilizcə">İngilizcə</option>
+                        <option value="Rusca">Rusca</option>
+                        <option value="Almanca">Almanca</option>
+                        <option value="İtalyanca">İtalyanca</option>
+                    </select>
+               </div>
+               <div class="form-ele">
+                    <label for="Qiymətləndirmə">Qiymətləndirmə: </label>
+                    <input type="range" name="Qiymətləndirmə" id="Qiymətləndirmə">
+               </div>
+                <label for="Şərh">Şərhiniz:</label>
+                <textarea name="Şərh" id="Şərh" cols="30" rows="10"></textarea>
+                <button class="submit_button" type="submit">Göndər</button>
+            </form>
+        </div>
+        </div>
+    </div>
+    <div id="social-network">
+        <ul class="social-list">
+           <li class="li-delete-dot"><a href="https://www.facebook.com/"><i class="fab fa-facebook fa-2x"></i></a></li>
+            <li class="li-delete-dot"><a href="https://www.youtube.com/"><i class="fab fa-youtube fa-2x"></i></a></li>
+            <li class="li-delete-dot"><a href="https://www.instagram.com/"><i class="fab fa-instagram fa-2x"></i></a></li>
+            <li class="li-delete-dot"><a href="https://www.linkedin.com/"><i class="fab fa-linkedin-in fa-2x"></i></a></li>
+            <li class="li-delete-dot"><a href="https://www.google.com/"><i class="fab fa-google fa-2x"></i></a></li>
+        </ul>
+        <ul class="lonely-icon">
+            <li class="li-delete-dot"><a href="#Title"><i class="fas fa-angle-double-up fa-2x"></i></a></li>
+        </ul>
+    </div>
+    <footer>
+        <p>2020 &copy; Bütün haqlar qorunur.</p>
+    </footer>
+</body>
+</html>

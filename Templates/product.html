@@ -1,0 +1,236 @@
+{% extends 'layout.html' %}
+
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+{% endblock css %}
+
+{% block navbar %}
+<nav class="navbar col navbar-expand-lg navbar-dark bg-info">
+  <div class="container-fluid w-75">
+    <a class="navbar-brand" href="{{ url_for('index') }}">Kitab Mağazası</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon" style="color: blue; font-size: 200%;"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex justify-content-center align-items-center">
+
+
+        <li class="nav-item">
+          <span class="badge bg-danger rounded-circle" id="bookSizeSection"></span>
+        </li>
+
+
+        <li class="nav-item dropdown">
+          <span class="fa-solid fa-cart-shopping text-white nav-link dropdown-toggle" id="navbarDropdown" role="button"
+            data-bs-toggle="dropdown" aria-expanded="false"></span>
+
+
+          <ul class="dropdown-menu dropdown-menu-end" id="Sebet" aria-labelledby="navbarDropdown">
+            <li>
+              <p class="dropdown-item d-flex justify-content-between">
+                <span>
+                  <span class="fa-solid fa-xmark text-danger"></span>
+                  <span class="bookName" style="margin-right: 1rem">1984</span>
+                </span>
+                <span class="bookPrize">18 AZN</span>
+              </p>
+            </li>
+            <li>
+              <p class="dropdown-item d-flex justify-content-between">
+                <span>
+                  <span class="fa-solid fa-xmark text-danger"></span>
+                  <span class="bookName" style="margin-right: 1rem">Səfillər</span>
+                </span>
+                <span class="bookPrize">21 AZN</span>
+              </p>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li>
+              <p class="dropdown-item d-flex justify-content-between" href="#">
+                <span>Cəmi:</span>
+                <span id="prize-span"></span>
+              </p>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="{{ url_for('index') }}">Ana səhifə</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Haqqımızda</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Kateqoriyalar</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Ayın kitabı</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            İstifadəçi
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+{% endblock navbar %}
+  
+{% block body %}
+<div class="model-section-div">
+
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Bildiriş</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-end" id="modal-text-section">
+        Məhsul səbətə əlavə edildi
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Bağla</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Navbar -->
+
+
+<!-- book info section  -->
+<div class="container w-75">
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-4">
+        <div class="card w-75">
+          <img src="{{ url_for('static', filename = book.path) }}" class="card-img-top" alt="Inkognito book cover">
+        </div>
+      </div>
+      <div class="col-8 text-end">
+        <div class="card-body pt-0 book-content-info">
+          <h5 class="card-title fs-1">{{book.name}}</h5>
+          <p class="card-text"><span class="text-success fs-3 fw-bold">{{book.new_price}}</span> <span
+              class="text-danger text-decoration-line-through">{{book.old_price}}</span></p>
+        </div>
+        <div class="text-end">
+          <p>{{book.info}}</p>
+          <div class="d-flex align-items-center justify-content-end">
+            <span id="like-font-icon" class="fa-solid fa-thumbs-up text-primary fs-2 "></span>
+            <span id="heart-font-icon" class="fa-solid fa-heart m-3 text-secondary fs-2"></span>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+              onclick="addBasket(this)">Səbətə əlavə et</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="alert alert-warning mt-4 text-center" role="alert">
+    Bu kitabdan <span id="book-countdown">{{book.size}}</span> ədəd qalmışdır
+  </div>
+
+  <table class="table table-borderless mb-5">
+    <p class="text-center text-uppercase fs-3 fw-normal mt-5">Xüsusiyyətlər</p>
+    <thead class="border-top">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Xüsusiyyət</th>
+        <th scope="col">Açıqlama</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-active border-bottom border-top border-3">
+        <th scope="row">1</th>
+        <td>Dil:</td>
+        <td>{{book.lang}}</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Janr:</td>
+        <td>{{book.genre}}</td>
+      </tr>
+      <tr class="table-active border-bottom border-top border-3">
+        <th scope="row">3</th>
+        <td>Müəllif:</td>
+        <td>{{book.author}}</td>
+      </tr>
+      <tr>
+        <th scope="row">4</th>
+        <td>Nəşriyyat:</td>
+        <td>{{book.publishing}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- form section  -->
+  <form action="">
+    <p class="text-center text-uppercase fs-3 fw-normal">Şərh yaz</p>
+    <div class="mb-3">
+      <label for="formGroupExampleInput" class="form-label">Tam adınız:</label>
+      <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Ad Soyad">
+    </div>
+    <label for="form-selection" class="form-label">Hansı dildə oxumusunuz?</label>
+    <select class="form-select mb-2" id="form-selection" aria-label="Hansı dildə oxumusunuz?">
+      <option selected>Azərbaycan</option>
+      <option value="1">İngilis</option>
+      <option value="2">Rus</option>
+    </select>
+    <label for="customRange1" class="form-label mb-0">Qiymətləndirmə:</label>
+    <input type="range" class="w-100" id="customRange1">
+    <label for="floatingTextarea2">Şərhiniz:</label>
+    <div class="form-floating">
+      <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+        style="height: 100px"></textarea>
+    </div>
+    <div class="form-check form-switch mb-3 mt-3">
+      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+      <label class="form-check-label" for="flexSwitchCheckDefault">Bu kitabı oxumusunuz?</label>
+    </div>
+    <button type="button" class="btn btn-primary mb-5">Submit</button>
+  </form>
+</div>
+
+<div class="bg-primary border-bottom text-center p-5">
+  <h2 class="text-white m-0 fw-normal mb-5">Bütün kitablar</h2>
+  <div class="center w-75 d-flex m-auto">
+    <div class="mx-2"><img class="w-75" src="{{ url_for('static', filename = 'Images/Ateşle_İmtihan.jpg') }}"
+        alt="Book cover page"></div>
+    <div class="mx-2"><img class="w-75" src="{{ url_for('static', filename = 'Images/Elflerin_Kanı_kapak.jpg') }}"
+        alt="Book cover page"></div>
+    <div class="mx-2"><img class="w-75" src="{{ url_for('static', filename = 'Images/Gölün_Hanımı.jpg') }}"
+        alt="Book cover page"></div>
+    <div class="mx-2"><img class="w-75" src="{{ url_for('static', filename = 'Images/Kırlangıç_Kulesi.jpg') }}"
+        alt="Book cover page"></div>
+    <div class="mx-2"><img class="w-75" src="{{ url_for('static', filename = 'Images/Son_Dilek_kapak.jpg') }}"
+        alt="Book cover page"></div>
+    <div class="mx-2"><img class="w-75" src="{{ url_for('static', filename = 'Images/Illuminae.jpg') }}"
+        alt="Book cover page"></div>
+  </div>
+</div>
+{% endblock body %}
+
+{% block js %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script src="{{ url_for('static', filename = 'Js/product.js') }}"></script>
+{% endblock js %}

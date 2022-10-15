@@ -1,0 +1,1 @@
+Bootstrap grid sistemi rowları 12 bərabər hissəyə bölərək və sonra onları uyğun columlara width olaraq verərək işləyir. Gridlərin üstünlüyü çox rahat şəkildə elementləri səhifədə istədiyimiz şəkildə yerləşdirə bilirik və bölgü flexdən daha düzgün olur.

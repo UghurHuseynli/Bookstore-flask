@@ -1,0 +1,2 @@
+Js nədir və nə işə yarar? - Javascript yüksək səviyəli dinamik proqramlama dilidir. Onun köməkliyi ilə interaktiv web səhifələr yaratmaq olar.
+Js istifade etmədən web səhifələr yaratmaq olar ama səhifələr çox passiv şəkildə olacaqdır user ilə heç bir ünsiyyət qurmaq olmayacaqdır.
